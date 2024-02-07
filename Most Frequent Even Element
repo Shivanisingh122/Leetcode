@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int mostFrequentEven(vector<int>& nums) {
+        int n=nums.size();
+        map<int,int>omap;
+        for(auto i:nums){
+            if(i%2==0)
+                omap[i]++;
+        }
+        int max=-1;
+        for(auto i:omap){
+            if(i.second>max)
+                max=i.second;
+        }
+        for(auto i:omap){
+            if(i.second==max)
+                return i.first;
+        }
+        return -1;
+    }
+};
